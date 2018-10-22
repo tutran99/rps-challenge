@@ -14,11 +14,13 @@ end
 get '/play' do
   @player = session[:player]
   @selection = session[:selection]
+  @computer_selection = session[:computer_selection]
   erb :play
 end
 
 post '/play' do
   session[:selection] = params[:selection]
+  session[:computer_selection] = :paper
   redirect '/play'
 end
 

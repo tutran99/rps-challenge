@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 feature 'playing the game' do
   before do
     visit ('/')
@@ -15,5 +16,10 @@ feature 'playing the game' do
   scenario 'player can select rock,paper or scissors' do
     click_button 'Rock'
     expect(page).to have_content 'You have chosen Rock'
+  end
+  
+  scenario 'computer selects rock, paper or scissors' do
+    click_button 'Paper'
+    expect(page).to have_content 'Your opponent has chosen Paper'
   end
 end
