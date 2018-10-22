@@ -13,7 +13,13 @@ end
 
 get '/play' do
   @player = session[:player]
+  @selection = session[:selection]
   erb :play
+end
+
+post '/play' do
+  session[:selection] = params[:selection]
+  redirect '/play'
 end
 
   # start the server if ruby file executed directly
