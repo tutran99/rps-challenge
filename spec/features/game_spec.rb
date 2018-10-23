@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'computer'
 
 feature 'playing the game' do
   before do
@@ -21,5 +22,16 @@ feature 'playing the game' do
   scenario 'computer selects rock, paper or scissors' do
     click_button 'Paper'
     expect(page).to have_content 'Your opponent has chosen Paper'
+  end
+end
+
+feature 'getting a result' do
+  before do 
+    Computer.new.computer_choice
+  end
+    
+  scenario 'player beats computer' do
+    click_button 'Rock'
+    expect(page).to have_content 'You win!'
   end
 end
